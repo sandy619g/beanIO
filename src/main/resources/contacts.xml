@@ -1,0 +1,43 @@
+<beanio xmlns="http://www.beanio.org/2012/03">
+
+    <!-- 'format' identifies the type of stream -->
+    <stream name="contacts" format="csv">
+
+        <group name="records" minOccurs="0" maxOccurs="unbounded" collection="list" class="com.beanio.example.beans.Record">
+            <record name="header" minOccurs="1" maxOccurs="1" class="com.beanio.example.beans.Header">
+                <field name="name" />
+                <field name="surname" />
+                <field name="street" />
+                <field name="city" />
+                <field name="state" />
+                <field name="zip" />
+            </record>
+            <group name="contactList" minOccurs="1" maxOccurs="unbounded" collection="list" class="com.beanio.example.beans.Contact">
+                <record name="contact">
+                    <field name="firstName" />
+                    <field name="lastName" />
+                    <field name="street" />
+                    <field name="city" />
+                    <field name="state" />
+                    <field name="zip" />
+                </record>
+            </group>
+
+            <!--<segment name="contactList"  minOccurs="1" maxOccurs="unbounded" class="com.beanio.example.beans.Contact" collection="list">
+                &lt;!&ndash; 'ignore' indicates this field is not bound to a bean property &ndash;&gt;
+                <field name="firstName" />
+                <field name="lastName" />
+                <field name="street" />
+                <field name="city" />
+                <field name="state" />
+                <field name="zip" />
+            </segment>-->
+
+        </group>
+        <!-- Detail records are bound to example.Contact -->
+
+
+        <!-- 'target' binds the trailer record to the Integer record count field -->
+
+    </stream>
+</beanio>
